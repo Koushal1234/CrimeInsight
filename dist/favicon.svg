@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="14" fill="#07111f" />
+  <path
+    d="M32 7L12 16V29.5C12 41.5 20.7 52 32 55C43.3 52 52 41.5 52 29.5V16L32 7Z"
+    fill="url(#shield)"
+    stroke="#1E90FF"
+    stroke-width="2"
+  />
+  <path
+    d="M32 20C27 20 23 24 23 29C23 33.2 25.6 36.8 29.3 38.2"
+    stroke="#7EC8FF"
+    stroke-width="2"
+    stroke-linecap="round"
+  />
+  <path
+    d="M32 24C29.2 24 27 26.3 27 29C27 31.3 28.6 33.3 30.8 34"
+    stroke="#4BE4D4"
+    stroke-width="2"
+    stroke-linecap="round"
+  />
+  <path
+    d="M32 20C37 20 41 24 41 29C41 33.2 38.4 36.8 34.7 38.2"
+    stroke="#7EC8FF"
+    stroke-width="2"
+    stroke-linecap="round"
+  />
+  <path
+    d="M32 24C34.8 24 37 26.3 37 29C37 31.3 35.4 33.3 33.2 34"
+    stroke="#4BE4D4"
+    stroke-width="2"
+    stroke-linecap="round"
+  />
+  <circle cx="32" cy="29" r="2.4" fill="#4BE4D4" />
+  <path d="M32 38V46" stroke="#1E90FF" stroke-width="2" stroke-linecap="round" />
+  <path d="M25 42H39" stroke="#1E90FF" stroke-width="2" stroke-linecap="round" />
+  <path d="M25 42L22 46H28L25 42Z" fill="#1E90FF" opacity=".65" />
+  <path d="M39 42L36 46H42L39 42Z" fill="#1E90FF" opacity=".65" />
+  <defs>
+    <linearGradient id="shield" x1="32" y1="7" x2="32" y2="55" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#143A69" />
+      <stop offset="1" stop-color="#091426" />
+    </linearGradient>
+  </defs>
+</svg>
