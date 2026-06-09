@@ -1,5 +1,37 @@
+# Dependencies and build output
+node_modules/
+dist/
+dist-ssr/
+coverage/
+
+# Environment files
 .env
 .env.*
-node_modules
-dist
+!.env.example
+!server/.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Local and editor files
+*.local
 .DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Python experiment artifacts
+__pycache__/
+*.py[cod]
+lab_experiments/

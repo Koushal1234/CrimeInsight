@@ -1,51 +1,61 @@
 # CrimeInsight
 
-CrimeInsight is a crime management and analysis system built with:
+CrimeInsight is a full-stack crime management and analysis system for recording
+cases, managing related entities, coordinating patrols, and viewing operational
+reports.
 
-- React + TypeScript frontend
-- Express + MySQL backend
-- MySQL relational schema with views, trigger, and stored procedure
+## Tech Stack
+
+- React, TypeScript, Vite, Tailwind CSS, and shadcn/ui
+- Express.js REST API
+- MySQL database with views, triggers, and stored procedures
 
 ## Project Structure
 
-- `src/`: frontend application
-- `server/`: Express API and MySQL integration
-- `database/crimeinsight.sql`: bootstrap schema and seed data
-- `docs/CRIMEINSIGHT_PROJECT_DOCUMENTATION.md`: repo-aligned project documentation
-- `docs/CRIMEINSIGHT_PROJECT_REPORT.md`: submission-style project report
-
-## Frontend Setup
-
-From the project root:
-
-```sh
-npm install
-npm run dev
+```text
+CrimeInsight/
+├── database/          # Database schema and seed data
+├── docs/              # Project documentation and report
+├── public/            # Static frontend assets
+├── server/            # Express API, authentication, and routes
+├── src/               # React frontend source
+├── package.json       # Frontend dependencies and scripts
+└── README.md
 ```
 
-The frontend runs on:
+Files such as `vite.config.ts`, `tailwind.config.ts`, and the TypeScript
+configuration files belong at the repository root and are required by the
+frontend toolchain.
 
-```txt
-http://localhost:8080
-```
+## Prerequisites
 
-## Backend Setup
+- Node.js 18 or newer
+- npm
+- MySQL 8
 
-From the `server/` directory:
+## Setup
 
-```sh
-cd server
-npm install
-npm run dev
-```
+1. Install the frontend dependencies:
 
-The backend runs on:
+   ```sh
+   npm install
+   ```
 
-```txt
-http://localhost:5001
-```
+2. Install the backend dependencies:
 
-Copy [server/.env.example](/Users/koushalgupthaedupulapatisrinivasa/Downloads/insight-command-main/server/.env.example) to `server/.env` and fill in your values:
+   ```sh
+   cd server
+   npm install
+   cd ..
+   ```
+
+3. Create the backend environment file:
+
+   ```sh
+   cp server/.env.example server/.env
+   ```
+
+4. Update `server/.env` with your local database credentials:
 
 ```env
 DB_HOST=localhost
@@ -53,69 +63,52 @@ DB_USER=root
 DB_PASSWORD=your_mysql_password
 DB_NAME=CRIMEINSIGHT
 PORT=5001
-AUTH_SECRET=change-this-secret
+AUTH_SECRET=replace-with-a-long-random-secret
 ```
 
-## Database Setup
-
-Run the schema bootstrap:
+5. Create and seed the database:
 
 ```sh
-mysql -u <username> -p < /Users/koushalgupthaedupulapatisrinivasa/Downloads/insight-command-main/database/crimeinsight.sql
+mysql -u <username> -p < database/crimeinsight.sql
 ```
 
-Then start the backend. On startup it will:
+## Running the Application
 
-- migrate legacy plain-text officer passwords to hashed passwords
-- ensure the `PATROL_DISPATCH` table exists
-
-## Authentication
-
-Current login uses the `OFFICER` table.
-
-Sample credentials from the bootstrap SQL:
-
-- `admin / admin123`
-- `inspector1 / police123`
-
-The backend now issues a signed auth token and protects API routes with role checks.
-
-## Project Review Checklist
-
-Before review/demo:
-
-1. Start MySQL and verify the `CRIMEINSIGHT` schema exists.
-2. Start backend with a valid `AUTH_SECRET`.
-3. Start frontend from the project root.
-4. Verify login with `admin / admin123`.
-5. Verify one full CRUD cycle each for:
-   - crime
-   - criminal
-   - victim
-   - court case
-   - patrol
-   - police station
-6. Verify the Reports page loads without API errors.
-7. Confirm changes in MySQL Workbench.
-
-## Verification
-
-Frontend:
-
-```sh
-npm run build
-npm run lint
-```
-
-Backend:
+Start the backend:
 
 ```sh
 cd server
 npm run dev
 ```
 
-Health check:
+Start the frontend in another terminal:
 
-```txt
-GET http://localhost:5001/api/health
+```sh
+npm run dev
 ```
+
+- Frontend: `http://localhost:8080`
+- Backend: `http://localhost:5001`
+- Health check: `http://localhost:5001/api/health`
+
+## Demo Login
+
+The seed data includes:
+
+- Admin: `admin` / `admin123`
+- Inspector: `inspector1` / `police123`
+
+These credentials are intended only for local demonstration.
+
+## Verification
+
+```sh
+npm run build
+npm run lint
+npm test
+```
+
+## Documentation
+
+- [Project documentation](docs/CRIMEINSIGHT_PROJECT_DOCUMENTATION.md)
+- [Project report](docs/CRIMEINSIGHT_PROJECT_REPORT.md)
